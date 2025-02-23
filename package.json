@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "marp slides -s",
-    "build": "npm run build:index && npm run build:slides",
+    "build": "npm run build:config && npm run build:index && npm run build:slides",
+    "build:config": "echo 'permalink: pretty' > public/_config.yml",
     "build:index": "marp \"slides/index.md\" -o public/index.html --html --theme-set ./slides/style.css",
     "build:slides": "for dir in slides/*/; do marp \"$dir/*.md\" -o \"public/$(basename \"$dir\").html\" --html --theme-set ./slides/style.css; done"
   },
