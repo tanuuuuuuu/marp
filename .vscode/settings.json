@@ -1,0 +1,10 @@
+{
+  // Sassのコンパイル設定
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "generateMap": false
+    }
+  ]
+}

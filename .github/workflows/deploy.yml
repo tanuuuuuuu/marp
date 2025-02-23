@@ -1,0 +1,45 @@
+# ワークフローの名前。GitHub Actionsタブに表示される
+name: Deploy to Pages
+
+# ワークフローのトリガーを定義
+on:
+  push:
+    # mainブランチにプッシュされた時のみ実行
+    branches: [main]
+
+# GitHub Pagesへのデプロイに必要な権限設定
+permissions:
+  contents: read # リポジトリのコンテンツ読み取り権限
+  pages: write # GitHub Pagesへの書き込み権限
+  id-token: write # デプロイ時の認証に必要な権限
+
+# 実行する処理をjobsとして定義
+jobs:
+  # jobsの中の1つのジョブ。名前は任意
+  deploy:
+    # ジョブを実行するランナーの種類を指定
+    runs-on: ubuntu-latest
+
+    # 実行する手順をステップとして定義
+    steps:
+      # リポジトリのチェックアウト
+      - uses: actions/checkout@v4
+
+      # Node.jsの環境をセットアップ
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "latest" # 使用するNode.jsのバージョン
+
+      # 依存パッケージのインストール
+      - run: npm install
+
+      # ビルドの実行（package.jsonのbuildスクリプト）
+      - run: npm run build
+
+      # ビルドしたファイルをGitHub Pagesの成果物としてアップロード
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public # アップロードするディレクトリを指定
+
+      # GitHub Pagesへのデプロイを実行
+      - uses: actions/deploy-pages@v4
