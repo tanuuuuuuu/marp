@@ -7,6 +7,9 @@ on:
     # mainブランチにプッシュされた時のみ実行
     branches: [main]
 
+  # 手動実行用のトリガー
+  workflow_dispatch:
+
 # GitHub Pagesへのデプロイに必要な権限設定
 permissions:
   contents: read # リポジトリのコンテンツ読み取り権限
