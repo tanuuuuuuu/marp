@@ -18,6 +18,37 @@ and roots 株式会社 / グロースハックチーム
 
 ---
 
+## 自己紹介（もてぃのフォーマット丸パクリ）
+
+<style>
+.self-intro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.self-intro img {
+  width: 250px;
+  border-radius: 50%;
+}
+</style>
+
+<div class="self-intro">
+  <img src="../tanu.jpg" alt="profile image">
+  <div>
+    <ul>
+      <li><strong>名前:</strong> Kenta Taniguchi</li>
+      <li><strong>会社:</strong> and roots株式会社</li>
+      <li><strong>所属:</strong> グロースハックチーム 基盤グループ</li>
+      <li><strong>職業:</strong> アナリティクスエンジニア</li>
+      <li><strong>得意分野:</strong> データ全般</li>
+      <li><strong>趣味:</strong> カレー、コーヒー、料理、ゲーム</li>
+    </ul>
+  </div>
+</div>
+
+---
+
 # 🧑‍🏫 クイズ その 1
 
 次の 2 つの文字列から生成されたハッシュ値は同じになるか？
